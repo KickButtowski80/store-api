@@ -1,5 +1,5 @@
 require('dotenv').config()
-// async errors
+require('express-async-errors');
 
 const express = require('express')
 const app = express()
@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 })
 
 //productsRouter is middleware
+// /api/v1/products is the base path
 app.use('/api/v1/products', productsRouter)
 
 // products route
@@ -30,7 +31,7 @@ const start = async () => {
     try {
         //connect DB
         await connectDB(process.env.MONGO_URI)  
-        app.listen(port, console.log(`Server is listening 👓 port ${port}... 🚀`))
+        app.listen(port, console.log(`Server is looking 👓 port ${port}... 🚀`))
     } catch (error) {
         console.log(`error🚑 ${error}`)
     }
