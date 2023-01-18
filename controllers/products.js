@@ -2,16 +2,31 @@ const Product = require('../models/product')
 
 
 
-const getAllProductsStatic = async (req, res) => {  
+const getAllProductsStatic = async (req, res) => {
+    const search = 'a'
     const products = await Product.find({
-         featured: true,
-         name: 'vase table'
-         })
+        featured: true,
+        name: { $regex: search, $options: 'i' }
+    })
     res.status(200).json({ count: products.length, products: products })
 }
 
 const getAllProducts = async (req, res) => {
-    res.status(200).json({ msg: 'products route 🚗' })
+    const { featured, company, name, } = req.query
+    const queryObject = {}
+    if (featured) {
+        queryObject.featured = featured === 'true' ? true : false
+    }
+    if (company) {
+        queryObject.company = company
+    }
+    if (name) {
+        queryObject.name = { $regex: name, $options: 'i' }
+    }
+
+    const products = await Product.find(queryObject)
+    res.status(200).json({ count: products.length, products: products })
+
 }
 
 module.exports = {
