@@ -107,24 +107,24 @@
     "company": "ikea"
   },
   {
-    "name": "wooden desk",
+    "name": "wooden desk I",
     "price": 15,
     "company": "ikea"
   },
   {
-    "name": "wooden desk",
+    "name": "wooden desk II",
     "price": 40,
     "company": "ikea"
   },
   {
-    "name": "wooden table",
+    "name": "wooden table I",
     "price": 23,
     "featured": true,
     "company": "caressa"
   },
   {
-    "name": "a first wooden table",
-    "price": 23,
+    "name": "wooden table II",
+    "price": 40,
     "featured": true,
     "company": "caressa"
   }
